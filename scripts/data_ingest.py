@@ -7,8 +7,8 @@ def load_and_merge_catalog():
     """
     1) Reads product_data.xlsx and images.csv from data/
     2) Merges on 'id'
-    3) Selects EXACTLY the first image_url per product 'id' as representative
-    4) Saves a CSV of (id, title, product_type, rep_image_url) for downstream embedding.
+    3) Keeps all image_urls for each product
+    4) Saves a CSV of (id, title, product_type, image_urls) for downstream processing.
     """
     # 1. Paths (assumes script run from project root)
     excel_path = os.path.join("data", "product_data.xlsx")
@@ -26,12 +26,12 @@ def load_and_merge_catalog():
         validate="many_to_one"  # multiple images → one product
     )
 
-    # 4. For each 'id', pick the first image_url (to keep one representative)
+    # 4. For each 'id', collect all image_urls
     merged_sorted = merged.sort_values(by=["id"])  # ensure consistent ordering
     representative = (
         merged_sorted.groupby("id", as_index=False)
         .agg({
-            "image_url": "first",      # take the first URL encountered
+            "image_url": lambda x: list(x),      # collect all URLs as list
             "title": "first", 
             "product_type": "first"
         })
