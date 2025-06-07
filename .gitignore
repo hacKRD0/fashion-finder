@@ -33,6 +33,8 @@ ENV/
 *~
 
 # Project specific
+debug_crops/
+outputs/
 data/
 *.pt
 *.pth
