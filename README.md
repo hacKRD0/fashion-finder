@@ -21,11 +21,12 @@ This project implements an end-to-end pipeline for processing fashion content, i
 ## Models Used
 
 ### 1. Object Detection
-- **Model**: YOLOv8 (Ultralytics)
-  - **Version**: Custom fine-tuned for fashion
+- **Model**: [YOLOv8n-clothing-detection](https://huggingface.co/kesimeg/yolov8n-clothing-detection)
+  - **Version**: Fine-tuned YOLOv8n for fashion items
+  - **Classes**: Clothing, bags, shoes, and accessories
   - **Task**: Detects fashion items in videos
   - **Input**: Video frames
-  - **Output**: Bounding boxes around fashion items
+  - **Output**: Bounding boxes around fashion items with class labels
 
 ### 2. Product Matching
 - **Model**: CLIP (Contrastive Language-Image Pretraining)
