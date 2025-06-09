@@ -1,5 +1,7 @@
 # Fashion Finder
 
+[![Loom Demo](https://img.shields.io/badge/View-Demo-552586?style=for-the-badge&logo=loom&logoColor=white)](https://www.loom.com/share/106131bf2e3a4c74ad42ad622bbd48a4?sid=1b8eb8c4-75eb-487a-aa9d-aa8342c7bd67)
+
 A computer vision pipeline for detecting fashion items in videos, matching them with a product catalog, and classifying the overall style vibes.
 
 ## Project Overview
