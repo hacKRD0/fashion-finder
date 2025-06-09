@@ -49,7 +49,6 @@ app/embeddings/
 debug_outputs/
 debug_crops/
 data/
-*.pt
 *.pth
 *.h5
 *.hdf5

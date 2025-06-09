@@ -18,6 +18,29 @@ This project implements an end-to-end pipeline for processing fashion content, i
 - **Batch Processing**: Process multiple videos in a directory
 - **Debug Outputs**: Save intermediate results for analysis and debugging
 
+## Models Used
+
+### 1. Object Detection
+- **Model**: YOLOv8 (Ultralytics)
+  - **Version**: Custom fine-tuned for fashion
+  - **Task**: Detects fashion items in videos
+  - **Input**: Video frames
+  - **Output**: Bounding boxes around fashion items
+
+### 2. Product Matching
+- **Model**: CLIP (Contrastive Language-Image Pretraining)
+  - **Version**: `openai/clip-vit-base-patch32`
+  - **Task**: Generates embeddings for visual similarity search
+  - **Input**: Cropped fashion item images
+  - **Output**: Feature vectors for product matching
+
+### 3. Vibe Classification
+- **Model**: BART (Bidirectional and Auto-Regressive Transformers)
+  - **Version**: `facebook/bart-large-mnli`
+  - **Task**: Zero-shot text classification for fashion vibes
+  - **Input**: Text descriptions or hashtags
+  - **Output**: Top 1-3 fashion vibes with confidence scores
+
 ## Installation
 
 1. Clone the repository:
