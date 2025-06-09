@@ -29,10 +29,24 @@ ENV/
 .idea/
 .vscode/
 *.swp
+
+# Model files and large assets
+app
+app/weights/
+app/embeddings/
+!app/weights/.gitkeep
+!app/embeddings/.gitkeep
+
+# Environment variables
+.env
+
+# Logs
+*.log
 *.swo
 *~
 
 # Project specific
+debug_outputs/
 debug_crops/
 outputs/
 data/
