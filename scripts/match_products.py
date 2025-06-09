@@ -3,6 +3,8 @@ import json
 import cv2
 import numpy as np
 import torch
+import shutil
+from pathlib import Path
 from tqdm import tqdm
 from PIL import Image
 from ultralytics import YOLO
@@ -23,9 +25,17 @@ FAISS_INDEX_JSON = os.path.join(MODEL_DIR, "catalog_index.json")
 
 # YOLO settings
 YOLO_BATCH_SIZE = 4               # frames per YOLO batch call
-CONF_THRESH = 0.25                # YOLO confidence threshold
+CONF_THRESH = 0.55                # YOLO confidence threshold (minimum confidence to consider a detection)
 IOU_THRESH = 0.45                 # YOLO NMS IoU threshold
 FRAME_SKIP = 5                     # process every 5th frame to speed up processing
+
+# Class ID to name mapping for output
+CLASS_NAMES = {
+    0: "accessories",
+    1: "bags",
+    2: "clothing",
+    3: "shoes"
+}
 
 # CLIP settings
 CLIP_MODEL = "openai/clip-vit-base-patch32"
@@ -147,10 +157,12 @@ class ProductMatcher:
             detections: List of YOLO Results objects (one per frame)
             frame_indices: List of original frame indices
         """
-        if not SAVE_CROPS:
+        if not SAVE_CROPS or not self.video_name:
             return
             
-        os.makedirs(CROPS_OUTPUT_DIR, exist_ok=True)
+        # Create output directory based on video name
+        video_crops_dir = os.path.join(CROPS_OUTPUT_DIR, os.path.splitext(os.path.basename(self.video_name))[0])
+        os.makedirs(video_crops_dir, exist_ok=True)
         
         for i, (frame, det) in enumerate(zip(frames, detections)):
             if det is None or det.boxes is None:
@@ -177,8 +189,10 @@ class ProductMatcher:
                     class_id = int(box.cls[0])
                     conf = float(box.conf[0])
                     timestamp = int(time.time() * 1000)
-                    crop_filename = f"frame_{frame_idx:06d}_class_{class_id}_conf_{conf:.2f}_{timestamp}.jpg"
-                    crop_path = os.path.join(CROPS_OUTPUT_DIR, crop_filename)
+                    # Create a more descriptive filename with class name and timestamp
+                    class_name = CLASS_NAMES.get(class_id, f"class_{class_id}")
+                    crop_filename = f"{class_name}_f{frame_idx:06d}_conf{conf:.2f}_{timestamp}.jpg"
+                    crop_path = os.path.join(video_crops_dir, crop_filename)
                     
                     # Save the cropped image
                     cv2.imwrite(crop_path, cv2.cvtColor(crop, cv2.COLOR_RGB2BGR))
@@ -310,6 +324,8 @@ class ProductMatcher:
         Returns:
             List of matched products with metadata
         """
+        # Store video name for organizing output crops
+        self.video_name = os.path.basename(video_path)
         if target_classes is None:
             target_classes = TARGET_CLASSES
             
@@ -376,7 +392,8 @@ class ProductMatcher:
         matched_list = []
         for pid, info in best_matches.items():
             matched_list.append({
-                "product_id": int(pid),
+                "matched_product_id": int(pid),  # Changed from product_id to matched_product_id
+                "product_type": CLASS_NAMES.get(int(info["yolo_class_id"]), "unknown"),  # Add product type
                 "match_type": info["match_type"],
                 "similarity": float(info["similarity"]),
                 "frame_no": int(info["frame_no"]),
@@ -400,8 +417,60 @@ class ProductMatcher:
                 json.dump(matched_list, f, indent=2)
                 
             print(f"Saved {len(matched_list)} matched products to {output_json_path}")
+            
+            # Copy matched product images to debug folder
+            self.copy_matched_product_images(matched_list, output_dir)
         
         return matched_list
+        
+    def copy_matched_product_images(self, matched_products, output_dir):
+        """
+        Copy the first image of all matched products to a debug_outputs folder.
+        
+        Args:
+            matched_products: List of matched product dictionaries
+            output_dir: Directory where the output JSON is saved
+        """
+        debug_output_dir = os.path.join(output_dir, "debug_outputs")
+        processed_dir = os.path.join("data", "processed")
+        
+        # Create debug output directory if it doesn't exist
+        os.makedirs(debug_output_dir, exist_ok=True)
+        
+        # Track copied product IDs to avoid duplicates
+        copied_products = set()
+        
+        for product in matched_products:
+            product_id = product.get("matched_product_id")
+            if not product_id or product_id in copied_products:
+                continue
+                
+            # Look for the first image of this product in the processed directory
+            product_dir = os.path.join(processed_dir, str(product_id))
+            if not os.path.isdir(product_dir):
+                print(f"Warning: Product directory not found: {product_dir}")
+                continue
+                
+            # Find the first image in the product directory
+            for ext in ["*.jpg", "*.jpeg", "*.png"]:
+                image_files = list(Path(product_dir).glob(ext))
+                if image_files:
+                    # Sort to ensure consistent selection of the first image
+                    image_files.sort()
+                    src_path = str(image_files[0])
+                    # Create destination path with product ID and original filename
+                    dest_filename = f"{product_id}_{image_files[0].name}"
+                    dest_path = os.path.join(debug_output_dir, dest_filename)
+                    
+                    try:
+                        shutil.copy2(src_path, dest_path)
+                        print(f"Copied {src_path} to {dest_path}")
+                        copied_products.add(product_id)
+                        break  # Move to next product after copying one image
+                    except Exception as e:
+                        print(f"Error copying {src_path} to {dest_path}: {e}")
+        
+        print(f"Copied {len(copied_products)} product images to {debug_output_dir}")
         
     def _process_batch(self, frames, frame_indices, target_classes, best_matches):
         """Process a batch of frames with YOLO and CLIP."""

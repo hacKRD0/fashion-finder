@@ -53,4 +53,28 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    run_end_to_end(args.video, args.captions, args.outputs)
+    # Batch mode: if --video is a directory, process all .mp4 files in it
+    if os.path.isdir(args.video):
+        input_dir = args.video
+        for fname in sorted(os.listdir(input_dir)):
+            if not fname.lower().endswith(".mp4"):
+                continue
+            video_file = os.path.join(input_dir, fname)
+            base = os.path.splitext(fname)[0]
+            txt_file = os.path.join(input_dir, base + ".txt")
+
+            # Load captions if available
+            captions = ""
+            if os.path.isfile(txt_file):
+                try:
+                    with open(txt_file, "r", encoding="utf-8") as cf:
+                        captions = cf.read().strip()
+                except Exception as e:
+                    print(f"Warning: failed to read captions for {fname}: {e}")
+
+            print(f"\nProcessing {fname} with captions: {'[found]' if captions else '[none]'}")
+            run_end_to_end(video_file, captions, args.outputs)
+
+    else:
+        # Single-file mode
+        run_end_to_end(args.video, args.captions, args.outputs)
