@@ -48,7 +48,6 @@ app/embeddings/
 # Project specific
 debug_outputs/
 debug_crops/
-outputs/
 data/
 *.pt
 *.pth

@@ -1,0 +1,529 @@
+{
+  "video_id": "2025-06-02_11-31-19_UTC",
+  "vibes": [
+    {
+      "vibe": "Clean Girl",
+      "score": 0.9831
+    },
+    {
+      "vibe": "Party Glam",
+      "score": 0.9586
+    },
+    {
+      "vibe": "Coquette",
+      "score": 0.9384
+    }
+  ],
+  "products": [
+    {
+      "matched_product_id": 16880,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.847598135471344,
+      "frame_no": 1480,
+      "yolo_confidence": 0.5518764853477478,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        957,
+        597,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 42083,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8451147675514221,
+      "frame_no": 1480,
+      "yolo_confidence": 0.5518764853477478,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        957,
+        597,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 15232,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.835006594657898,
+      "frame_no": 920,
+      "yolo_confidence": 0.7629613876342773,
+      "yolo_class_id": 2,
+      "bbox": [
+        173,
+        497,
+        612,
+        811
+      ]
+    },
+    {
+      "matched_product_id": 15001,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8349514603614807,
+      "frame_no": 1480,
+      "yolo_confidence": 0.5518764853477478,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        957,
+        597,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 15124,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8348236083984375,
+      "frame_no": 1480,
+      "yolo_confidence": 0.5518764853477478,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        957,
+        597,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 15268,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8346096873283386,
+      "frame_no": 1480,
+      "yolo_confidence": 0.5518764853477478,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        957,
+        597,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 116103,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8289088606834412,
+      "frame_no": 580,
+      "yolo_confidence": 0.6507086753845215,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        8,
+        634,
+        892
+      ]
+    },
+    {
+      "matched_product_id": 16018,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8216012120246887,
+      "frame_no": 580,
+      "yolo_confidence": 0.6507086753845215,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        8,
+        634,
+        892
+      ]
+    },
+    {
+      "matched_product_id": 16173,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.821410059928894,
+      "frame_no": 580,
+      "yolo_confidence": 0.6507086753845215,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        8,
+        634,
+        892
+      ]
+    },
+    {
+      "matched_product_id": 15430,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8186140656471252,
+      "frame_no": 580,
+      "yolo_confidence": 0.6507086753845215,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        8,
+        634,
+        892
+      ]
+    },
+    {
+      "matched_product_id": 15868,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8184076547622681,
+      "frame_no": 1500,
+      "yolo_confidence": 0.7051809430122375,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        986,
+        611,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 15355,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8179418444633484,
+      "frame_no": 580,
+      "yolo_confidence": 0.6507086753845215,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        8,
+        634,
+        892
+      ]
+    },
+    {
+      "matched_product_id": 16584,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8120735883712769,
+      "frame_no": 600,
+      "yolo_confidence": 0.5581029057502747,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        12,
+        643,
+        896
+      ]
+    },
+    {
+      "matched_product_id": 14994,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8109138011932373,
+      "frame_no": 940,
+      "yolo_confidence": 0.792413055896759,
+      "yolo_class_id": 2,
+      "bbox": [
+        172,
+        499,
+        611,
+        809
+      ]
+    },
+    {
+      "matched_product_id": 15102,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.808570921421051,
+      "frame_no": 400,
+      "yolo_confidence": 0.6190492510795593,
+      "yolo_class_id": 2,
+      "bbox": [
+        73,
+        4,
+        720,
+        881
+      ]
+    },
+    {
+      "matched_product_id": 17072,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8071683645248413,
+      "frame_no": 400,
+      "yolo_confidence": 0.6190492510795593,
+      "yolo_class_id": 2,
+      "bbox": [
+        73,
+        4,
+        720,
+        881
+      ]
+    },
+    {
+      "matched_product_id": 42082,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8055815100669861,
+      "frame_no": 940,
+      "yolo_confidence": 0.792413055896759,
+      "yolo_class_id": 2,
+      "bbox": [
+        172,
+        499,
+        611,
+        809
+      ]
+    },
+    {
+      "matched_product_id": 42040,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8023422956466675,
+      "frame_no": 940,
+      "yolo_confidence": 0.792413055896759,
+      "yolo_class_id": 2,
+      "bbox": [
+        172,
+        499,
+        611,
+        809
+      ]
+    },
+    {
+      "matched_product_id": 42039,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.8000490069389343,
+      "frame_no": 940,
+      "yolo_confidence": 0.792413055896759,
+      "yolo_class_id": 2,
+      "bbox": [
+        172,
+        499,
+        611,
+        809
+      ]
+    },
+    {
+      "matched_product_id": 17024,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7959789037704468,
+      "frame_no": 1460,
+      "yolo_confidence": 0.8669941425323486,
+      "yolo_class_id": 2,
+      "bbox": [
+        18,
+        417,
+        617,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 42043,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7922656536102295,
+      "frame_no": 900,
+      "yolo_confidence": 0.8063144087791443,
+      "yolo_class_id": 2,
+      "bbox": [
+        170,
+        497,
+        613,
+        815
+      ]
+    },
+    {
+      "matched_product_id": 42118,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7920098304748535,
+      "frame_no": 880,
+      "yolo_confidence": 0.7560518980026245,
+      "yolo_class_id": 2,
+      "bbox": [
+        170,
+        494,
+        614,
+        816
+      ]
+    },
+    {
+      "matched_product_id": 16222,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.791558563709259,
+      "frame_no": 1460,
+      "yolo_confidence": 0.8669941425323486,
+      "yolo_class_id": 2,
+      "bbox": [
+        18,
+        417,
+        617,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 15777,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7850079536437988,
+      "frame_no": 1460,
+      "yolo_confidence": 0.8669941425323486,
+      "yolo_class_id": 2,
+      "bbox": [
+        18,
+        417,
+        617,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 17166,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7848684787750244,
+      "frame_no": 1460,
+      "yolo_confidence": 0.8669941425323486,
+      "yolo_class_id": 2,
+      "bbox": [
+        18,
+        417,
+        617,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 17032,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7827880382537842,
+      "frame_no": 1460,
+      "yolo_confidence": 0.8669941425323486,
+      "yolo_class_id": 2,
+      "bbox": [
+        18,
+        417,
+        617,
+        1279
+      ]
+    },
+    {
+      "matched_product_id": 16125,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7820100784301758,
+      "frame_no": 140,
+      "yolo_confidence": 0.5706183314323425,
+      "yolo_class_id": 2,
+      "bbox": [
+        0,
+        912,
+        720,
+        1280
+      ]
+    },
+    {
+      "matched_product_id": 15689,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7757799625396729,
+      "frame_no": 2300,
+      "yolo_confidence": 0.7673871517181396,
+      "yolo_class_id": 2,
+      "bbox": [
+        5,
+        561,
+        720,
+        1278
+      ]
+    },
+    {
+      "matched_product_id": 15137,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7736845016479492,
+      "frame_no": 2100,
+      "yolo_confidence": 0.737235426902771,
+      "yolo_class_id": 2,
+      "bbox": [
+        37,
+        453,
+        707,
+        1192
+      ]
+    },
+    {
+      "matched_product_id": 15780,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7688800096511841,
+      "frame_no": 2300,
+      "yolo_confidence": 0.7673871517181396,
+      "yolo_class_id": 2,
+      "bbox": [
+        5,
+        561,
+        720,
+        1278
+      ]
+    },
+    {
+      "matched_product_id": 15369,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7669659852981567,
+      "frame_no": 2100,
+      "yolo_confidence": 0.737235426902771,
+      "yolo_class_id": 2,
+      "bbox": [
+        37,
+        453,
+        707,
+        1192
+      ]
+    },
+    {
+      "matched_product_id": 97551,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7610496878623962,
+      "frame_no": 2100,
+      "yolo_confidence": 0.737235426902771,
+      "yolo_class_id": 2,
+      "bbox": [
+        37,
+        453,
+        707,
+        1192
+      ]
+    },
+    {
+      "matched_product_id": 15957,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7564118504524231,
+      "frame_no": 1440,
+      "yolo_confidence": 0.8157320022583008,
+      "yolo_class_id": 2,
+      "bbox": [
+        121,
+        404,
+        543,
+        1280
+      ]
+    },
+    {
+      "matched_product_id": 16548,
+      "product_type": "clothing",
+      "match_type": "similar",
+      "similarity": 0.7559943199157715,
+      "frame_no": 1440,
+      "yolo_confidence": 0.8157320022583008,
+      "yolo_class_id": 2,
+      "bbox": [
+        121,
+        404,
+        543,
+        1280
+      ]
+    }
+  ]
+}

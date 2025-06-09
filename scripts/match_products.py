@@ -15,6 +15,7 @@ import time
 # ─────────────────────────────────────────────────────────────────────────────
 # Configurable parameters
 # ─────────────────────────────────────────────────────────────────────────────
+# os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 # Paths
 MODEL_DIR = "models"
@@ -60,7 +61,7 @@ SIMILARITY_SIMILAR = 0.75
 # Debugging
 SAVE_CROPS = True                # Set to True to save cropped images
 CROPS_OUTPUT_DIR = "debug_crops"  # Directory to save cropped images
-
+MATCHED_PRODUCTS_OUTPUT_DIR = "debug_outputs"  # Directory to save matched products
 # ─────────────────────────────────────────────────────────────────────────────
 # Helper functions
 # ─────────────────────────────────────────────────────────────────────────────
@@ -418,20 +419,30 @@ class ProductMatcher:
                 
             print(f"Saved {len(matched_list)} matched products to {output_json_path}")
             
-            # Copy matched product images to debug folder
-            self.copy_matched_product_images(matched_list, output_dir)
-        
+        # Copy matched product images to debug folder
+        self.copy_matched_product_images(matched_list, MATCHED_PRODUCTS_OUTPUT_DIR)
+
+        print(f"Copied {len(matched_list)} matched product images to {MATCHED_PRODUCTS_OUTPUT_DIR}")
         return matched_list
         
-    def copy_matched_product_images(self, matched_products, output_dir):
+    def copy_matched_product_images(self, matched_products, output_dir="/"):
         """
         Copy the first image of all matched products to a debug_outputs folder.
+        Creates a subfolder for each input video.
         
         Args:
             matched_products: List of matched product dictionaries
-            output_dir: Directory where the output JSON is saved
+            output_dir: Base directory where the output JSON is saved
         """
-        debug_output_dir = os.path.join(output_dir, "debug_outputs")
+        if not hasattr(self, 'video_name') or not self.video_name:
+            print("No video name available, cannot create subfolder for debug outputs")
+            return
+            
+        print(f"Copying matched product images to {output_dir}")
+        
+        # Create a subfolder for this video's debug outputs
+        video_name = os.path.splitext(os.path.basename(self.video_name))[0]
+        debug_output_dir = os.path.join(output_dir, video_name)
         processed_dir = os.path.join("data", "processed")
         
         # Create debug output directory if it doesn't exist
