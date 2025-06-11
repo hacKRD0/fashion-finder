@@ -200,7 +200,3 @@ The pipeline generates several debug outputs to help with troubleshooting:
 1. **Debug Crops**: Saved in `debug_crops/<video_name>/` for each processed video
 2. **Matched Products**: Saved in `debug_outputs/<video_name>/` for each video
 3. **JSON Output**: Contains matched products and vibes in the specified output directory
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
